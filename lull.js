@@ -237,3 +237,7 @@ function clicked(element) {
   playMusic();
   playingSong();
 }
+
+document.querySelector(".close-button").addEventListener("click", function () {
+  window.location.href = "./alarm.html";
+});

@@ -1,39 +1,39 @@
 let allMusic = [
   {
-    name: "Tieng gio",
+    name: "Wind",
     artist: "Ds Chien",
-    img: "tieng-gio",
+    img: "Tieng-gio",
     src: "tieng-gio",
   },
 
   {
-    name: "Tieng mua",
+    name: "Rain",
     artist: "Ds Chien",
-    img: "okarun",
+    img: "Tieng-mua",
     src: "Tieng-mua",
   },
   {
     name: "Piano",
     artist: "Ds Chien",
-    img: "okarun",
+    img: "tieng-piano.jpg",
     src: "tieng-piano",
   },
   {
-    name: "Song bien",
+    name: "Surf",
     artist: "Ds Chien",
-    img: "okarun",
+    img: "Tieng-song-bien.jpg",
     src: "Tieng-song-bien",
   },
   {
     name: "White nose",
     artist: "Ds Chien",
-    img: "okarun",
+    img: "white-noise.jpg",
     src: "white-noise",
   },
   {
     name: "Wind",
     artist: "Ds Chien",
-    img: "okarun",
+    img: "wind-chimes",
     src: "wind-chimes",
   },
 ];
