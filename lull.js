@@ -239,5 +239,5 @@ function clicked(element) {
 }
 
 document.querySelector(".close-button").addEventListener("click", function () {
-  window.location.href = "./Home.html";
+  window.location.href = "Home.html";
 });
