@@ -189,3 +189,275 @@ nav .nav-bar .logo a {
   font-size: 22px;
   cursor: pointer;
 }
+
+.coup {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  margin-top: 100px;
+}
+
+.coup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+
+}
+
+.coup h2 {
+  color: #fff;
+  font-family: Arial;
+  font-size: 70px;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+
+  width: 700px;
+  text-align: left;
+}
+
+.coup p {
+  color: #fff;
+  font-family: Arial;
+  font-size: 22px;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  margin-top: 150px;
+  width: 35%;
+
+}
+.title{
+  height: 30px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-size: 26px;
+  color: #4070f4;
+  margin-left: 100px;
+  
+}
+.title a{
+  text-decoration: none;
+  color: #4070f4;
+}
+hr{
+  width: 1px;
+}
+.tip{
+  display: flex;
+  width: 100%;
+  height: 500px;
+  background-color: rgb(211, 253, 253);
+  padding-left: 50px;
+  padding-top: 50px;
+  border-radius: 40px;
+
+
+}
+.tip h3{
+  color: #2f4571;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0 10px;
+}
+.tip img{
+  width: 450px;
+  height: 249px;
+
+}
+.tip p{
+  color: #1a1b1f;
+  display: flow-root;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 27px;
+  font-size: 18px;
+  margin: 18px 10px;
+}
+.tip1{
+  width: 490px;
+  height: 500px;
+  flex-direction: column;
+}
+.tip1 img{
+  border-radius:16px;
+  color: #4ca9ee;
+  display:inline;
+  font-size:18px;
+  font-weight:700;
+  line-height:31.5px;
+}
+.tip2{
+  width: 490px;
+  height: 500px;
+  flex-direction: column;
+}
+.tip2 img{
+  border-radius:16px;
+  color: #4ca9ee;
+  display:inline;
+  font-size:18px;
+  font-weight:700;
+  line-height:31.5px;
+}
+.tip3{
+  width: 490px;
+  height: 500px;
+  flex-direction: column;
+
+}
+.tip3 img{
+  border-radius:16px;
+  color: #4ca9ee;
+  display:inline;
+  font-size:18px;
+  font-weight:700;
+  line-height:31.5px;
+}
+.tip h2{
+  color:#444850;
+  font-family:Arial;
+  font-size:30px;
+  font-weight:700;
+  line-height:36px;
+  margin:8px 0px 16px;
+  padding:0px 0px 0px 48px;
+}
+.we{
+  padding-top: 100px;
+  height: 460px;
+  display: flex;
+  padding-left: 100px;
+}
+.we h2{
+  color: #2f4571;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 44px;
+}
+.we p{
+  color: #1a1b1f;
+  font-size: 22px;
+  line-height: 38px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 400px;
+  margin-top: 50px;
+}
+.ctp{
+  flex-direction: column;
+
+}
+.we img{
+  border-radius: 30px;
+  width: 890px;
+  height: 450px;
+  margin-left: 100px;
+}
+.top{
+  flex-direction: column;
+  width: 100%;
+  height: 423px;
+  padding-top: 150px;
+  padding-left: 50px;
+}
+.top h2{
+  color: #2f4571;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+}
+hr{
+  border-color:#2f4571;
+  border-style:solid;
+  border-width:3px;
+  width: 1400px;
+  font-size:10px;
+  line-height:30.6px;
+  text-align:left;
+  
+}
+.topp{
+  display: flex;
+  padding-top: 50px;
+  margin: 20px 20px;
+  justify-content: space-between;
+}
+
+.topp img{
+  width: 266px;
+  height: 200px;
+  border-radius: 10px;
+
+}
+.top1{
+  flex-direction: column;
+
+}
+.top p{
+  width: 240px;
+  height: 80px;
+}
+.top1 a{
+  color:rgb(50, 89, 10);
+}
+.top2 a{
+  color: #4070f4;
+}
+.top3 a{
+  color: darkorange;
+}
+.top4 a{
+  color: #4070f4;
+}
+.top5 a{
+  color: rgb(50, 90, 10);
+}
+.contactt hr{
+  border-color: #2f4571;
+  border-width: 3px;
+  width: 400px;
+  border-style: solid;
+}
+.contactt h2{
+  font-size: 30px;
+  color: #2f4571;
+}
+.contactt{
+  padding-top: 200px;
+  width: 100%;
+  height: 400px;
+  padding-left: 50px;
+}
+a>i {
+
+  font-size: 50px;
+}
+.contact{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  padding-left: 50px;
+}
+.hii{
+  margin-left: 50px;
+}
+.hi{
+  margin-left: 50px;
+}
+.thr{
+  margin-left: 50px;
+}
+.contact i{
+  color: #4070f4;
+}
+.contact a{
+  height: 40px;
+}
+
+
+
