@@ -215,10 +215,8 @@ nav .nav-bar .logo a {
 
 /* Style cho ảnh */
 .container1 img {
-  width: 128%;
+  width: 100vw;
   height: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -268,20 +266,24 @@ nav .nav-bar .logo a {
 h2 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 1000;
   letter-spacing: 1.8px;
   line-height: 50.4px;
   margin: 0px -1.8px 0px 0px;
+  margin-left: 50px;
   text-align: left;
+  color: lightseagreen;
+  
 }
 hr{
 border-color:#83ca6a;
 border-style:solid;
-border-width:3px;
+border-width:2px;
 width: 500px;
 font-size:18px;
 line-height:30.6px;
 text-align:left;
+margin-left: 50px;
 }
 .khoi1{
     display: flex;
@@ -302,6 +304,7 @@ text-align:left;
     width: 700px;
     height: 400px;
 }
+
 .content h3{
   width: 120%;
 }
@@ -322,7 +325,7 @@ margin-top: 200px;
 }
 .khoi2{
   display: flex;
-
+  margin-left: 50px;
 }
 h3 {
   font-family: 'Times New Roman', Times, serif;
@@ -344,6 +347,7 @@ h3 {
 }
 .khoi3{
   display: flex;
+  margin-left: 50px;
 }
 .pic-emo{
   margin-left: 100px;
@@ -357,6 +361,7 @@ h3 {
 }
 .khoi4{
   display: flex;
+  margin-left: 50px;
 }
 .pic-social{
   margin-left: 100px;
@@ -370,6 +375,7 @@ h3 {
 }
 .khoi5{
   display: flex;
+  margin-left: 50px;
 }
 .pic-spirit{
   margin-left: 100px;
@@ -383,6 +389,7 @@ h3 {
 }
 .khoi6{
   display: flex;
+  margin-left: 50px;
 }
 .pic-intell{
   margin-left: 100px;
@@ -396,6 +403,7 @@ h3 {
 }
 .khoi7{
   display: flex;
+  margin-left: 50px;
 }
 .pic-envi{
   margin-left: 100px;
@@ -409,6 +417,7 @@ h3 {
 }
 .khoi8{
   display: flex;
+  margin-left: 50px;
 }
 .pic-occu{
   margin-left: 100px;
@@ -450,6 +459,9 @@ h3 {
   font-size: 18px;
   width: 600px;
   margin-left: -10px;
+}
+.banner-right h2{
+  color: #010718;
 }
 a>i {
 
