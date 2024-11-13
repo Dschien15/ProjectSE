@@ -93,101 +93,19 @@ nav .nav-bar .logo a {
   width: 100%;
 }
 
-.nav-bar .timkiem {
-  display: flex;
-  align-items: center;
-}
-
-.timkiem .searchToggle {
-  height: 40px;
-  width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  margin: 0 5px;
-}
-
-.timkiem i,
-.searchToggle i {
-  position: absolute;
+/* Định dạng cho nút đăng nhập */
+.login-button .btn-login {
+  display: inline-block;
+  padding: 8px 16px;
   color: black;
-  font-size: 22px;
-  cursor: pointer;
-  transition: all 0.3 ease;
-}
-
-.searchToggle i.cancel {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.searchToggle.active i.cancel {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.searchToggle.active i.search {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.searchBox {
-  position: relative;
-}
-.searchBox .search-field {
-  position: absolute;
-  bottom: -85px;
-  right: 5px;
-  height: 50px;
-  width: 300px;
-  display: flex;
-  align-items: center;
-  background-color: rgb(131, 202, 106);
-  padding: 3px;
-  border-radius: 6px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.searchToggle.active ~ .search-field {
-  bottom: -74px;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.search-field::before {
-  content: "";
-  position: absolute;
-  right: 14px;
-  top: -4px;
-  height: 12px;
-  width: 12px;
-  background-color: rgb(131, 202, 106);
-  transform: rotate(-45deg);
-  z-index: -1;
-}
-
-.search-field input {
-  height: 100%;
-  width: 100%;
-  padding: 0 45px 0 15px;
-  outline: none;
-  border: none;
   border-radius: 4px;
-  font-size: 14px;
-  font-weight: 400;
-  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.search-field i {
-  position: absolute;
-  color: black;
-  right: 15px;
-  font-size: 22px;
-  cursor: pointer;
+.login-button .btn-login:hover {
+  background-color: #45a049;
 }
 
 .coup {
@@ -202,7 +120,6 @@ nav .nav-bar .logo a {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-
 }
 
 .coup h2 {
@@ -227,25 +144,23 @@ nav .nav-bar .logo a {
   left: 10%;
   margin-top: 150px;
   width: 35%;
-
 }
-.title{
+.title {
   height: 30px;
   margin-bottom: 50px;
   margin-top: 50px;
   font-size: 26px;
   color: #4070f4;
   margin-left: 100px;
-  
 }
-.title a{
+.title a {
   text-decoration: none;
   color: #4070f4;
 }
-hr{
+hr {
   width: 1px;
 }
-.tip{
+.tip {
   display: flex;
   width: 100%;
   height: 500px;
@@ -253,10 +168,8 @@ hr{
   padding-left: 50px;
   padding-top: 50px;
   border-radius: 40px;
-
-
 }
-.tip h3{
+.tip h3 {
   color: #2f4571;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
@@ -264,12 +177,11 @@ hr{
   line-height: 36px;
   margin: 0 10px;
 }
-.tip img{
+.tip img {
   width: 450px;
   height: 249px;
-
 }
-.tip p{
+.tip p {
   color: #1a1b1f;
   display: flow-root;
   font-family: Arial, Helvetica, sans-serif;
@@ -277,69 +189,68 @@ hr{
   font-size: 18px;
   margin: 18px 10px;
 }
-.tip1{
+.tip1 {
   width: 490px;
   height: 500px;
   flex-direction: column;
 }
-.tip1 img{
-  border-radius:16px;
+.tip1 img {
+  border-radius: 16px;
   color: #4ca9ee;
-  display:inline;
-  font-size:18px;
-  font-weight:700;
-  line-height:31.5px;
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 31.5px;
 }
-.tip2{
+.tip2 {
   width: 490px;
   height: 500px;
   flex-direction: column;
 }
-.tip2 img{
-  border-radius:16px;
+.tip2 img {
+  border-radius: 16px;
   color: #4ca9ee;
-  display:inline;
-  font-size:18px;
-  font-weight:700;
-  line-height:31.5px;
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 31.5px;
 }
-.tip3{
+.tip3 {
   width: 490px;
   height: 500px;
   flex-direction: column;
-
 }
-.tip3 img{
-  border-radius:16px;
+.tip3 img {
+  border-radius: 16px;
   color: #4ca9ee;
-  display:inline;
-  font-size:18px;
-  font-weight:700;
-  line-height:31.5px;
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 31.5px;
 }
-.tip h2{
-  color:#444850;
-  font-family:Arial;
-  font-size:30px;
-  font-weight:700;
-  line-height:36px;
-  margin:8px 0px 16px;
-  padding:0px 0px 0px 48px;
+.tip h2 {
+  color: #444850;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 8px 0px 16px;
+  padding: 0px 0px 0px 48px;
 }
-.we{
+.we {
   padding-top: 100px;
   height: 460px;
   display: flex;
   padding-left: 100px;
 }
-.we h2{
+.we h2 {
   color: #2f4571;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 42px;
   font-weight: 700;
   line-height: 44px;
 }
-.we p{
+.we p {
   color: #1a1b1f;
   font-size: 22px;
   line-height: 38px;
@@ -347,117 +258,109 @@ hr{
   width: 400px;
   margin-top: 50px;
 }
-.ctp{
+.ctp {
   flex-direction: column;
-
 }
-.we img{
+.we img {
   border-radius: 30px;
   width: 890px;
   height: 450px;
   margin-left: 100px;
 }
-.top{
+.top {
   flex-direction: column;
   width: 100%;
   height: 423px;
   padding-top: 150px;
   padding-left: 50px;
 }
-.top h2{
+.top h2 {
   color: #2f4571;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 44px;
 }
-hr{
-  border-color:#2f4571;
-  border-style:solid;
-  border-width:3px;
+hr {
+  border-color: #2f4571;
+  border-style: solid;
+  border-width: 3px;
   width: 1400px;
-  font-size:10px;
-  line-height:30.6px;
-  text-align:left;
-  
+  font-size: 10px;
+  line-height: 30.6px;
+  text-align: left;
 }
-.topp{
+.topp {
   display: flex;
   padding-top: 50px;
   margin: 20px 20px;
   justify-content: space-between;
 }
 
-.topp img{
+.topp img {
   width: 266px;
   height: 200px;
   border-radius: 10px;
-
 }
-.top1{
+.top1 {
   flex-direction: column;
-
 }
-.top p{
+.top p {
   width: 240px;
   height: 80px;
 }
-.top1 a{
-  color:rgb(50, 89, 10);
+.top1 a {
+  color: rgb(50, 89, 10);
 }
-.top2 a{
+.top2 a {
   color: #4070f4;
 }
-.top3 a{
+.top3 a {
   color: darkorange;
 }
-.top4 a{
+.top4 a {
   color: #4070f4;
 }
-.top5 a{
+.top5 a {
   color: rgb(50, 90, 10);
 }
-.contactt hr{
+.contactt hr {
   border-color: #2f4571;
   border-width: 3px;
   width: 400px;
   border-style: solid;
 }
-.contactt h2{
+.contactt h2 {
   font-size: 30px;
   color: #2f4571;
 }
-.contactt{
+.contactt {
   padding-top: 200px;
   width: 100%;
   height: 400px;
   padding-left: 50px;
 }
-a>i {
-
+a > i {
   font-size: 50px;
 }
-.contact{
+.contact {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   padding-left: 50px;
 }
-.hii{
+.hii {
   margin-left: 50px;
 }
-.hi{
+.hi {
   margin-left: 50px;
 }
-.thr{
+.thr {
   margin-left: 50px;
 }
-.contact i{
+.contact i {
   color: #4070f4;
 }
-.contact a{
+.contact a {
   height: 40px;
 }
-
-
-
