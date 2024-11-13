@@ -206,3 +206,7 @@ setInterval(() => {
   yseconds.innerHTML = s;
   yampm.innerHTML = am;
 });
+
+document.querySelector(".close-button").addEventListener("click", function () {
+  window.location.href = "Home.html";
+});

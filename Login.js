@@ -9,3 +9,7 @@ registerBtn.addEventListener("click", () => {
 loginBtn.addEventListener("click", () => {
   container.classList.remove("active");
 });
+
+document.querySelector(".close-button").addEventListener("click", function () {
+  window.location.href = "Home.html";
+});

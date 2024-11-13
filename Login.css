@@ -116,6 +116,34 @@ body {
   z-index: 5;
   animation: move 0.6s;
 }
+.close-button {
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+
+  box-shadow: none;
+}
+
+.close-button:active {
+  box-shadow: none;
+  transform: scale(1);
+}
 
 @keyframes move {
   0%,
