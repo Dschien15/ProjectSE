@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Welcome to Deep sleeping</title>
+
+    <link rel="stylesheet" href="/css/Home.css" th:href="@{/css/Home.css}" />
+    <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/images/font/css/all.css" th:href="@{/images/font/css/all.css}" />
+    <link
+            rel="shortcut icon"
+            href="/images/logo-page.jpg"
+            th:href="@{/images/logo-page.jpg}"
+            type="image/x-icon"
+    />
+</head>
+<body>
+<nav th:fragment="header" th:replace="~{home :: header}">
+
+</nav>
+
+<div class="coup">
+    <img src="/images/anhcouple.jpg" alt="" />
+    <h2>Sleep Better, For the Journey Ahead</h2>
+    <p>
+        Understand your sleep strengths and challenges so you can live life at
+        full steam.
+    </p>
+</div>
+<div class="title">
+    <a href=""><h2>Tips To Improve Your Sleep</h2></a>
+    <hr />
+</div>
+
+<div class="contactt">
+    <h2>Contact with us for more:</h2>
+    <hr />
+    <div class="contact">
+        <div>
+            <a href="https://www.facebook.com/huanle04">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        </div>
+        <div class="hii">
+            <a href="https://www.instagram.com/hunlvne.04">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <div class="hi">
+            <a href="">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
+        <div class="thr">
+            <a href="https://www.threads.net/@hunlvne.04">
+                <i class="fa-brands fa-threads"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="/js/Home.js" th:src="@{/js/Home.js}"></script>
+</body>
+</html>

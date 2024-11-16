@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/Home.css" th:href="@{/css/Home.css}" />
+    <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/images/font/css/all.css" th:href="@{/images/font/css/all.css}" />
+    <link
+            rel="shortcut icon"
+            href="/images/logo-page.jpg"
+            th:href="@{/images/logo-page.jpg}"
+            type="image/x-icon"
+    />
+</head>
+<body>
+<nav th:replace="~{home :: header}"></nav>
+
+<!--  Content  -->
+<div class="my-4 px-3" style="margin: 80px;">
+
+    <div th:if="${errorMessage}">
+        <p>Error: <span th:text="${errorMessage}" style="color: red;"></span></p>
+    </div>
+</div>
+</body>
+</html>
