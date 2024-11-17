@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Welcome to Deep sleeping</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu đồ Giấc Ngủ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/Home.css" th:href="@{/css/Home.css}" />
     <link
             href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -18,52 +18,235 @@
             th:href="@{/images/logo-page.jpg}"
             type="image/x-icon"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #chartCanvas {
+            width: 100%;
+            height: 500px;
+        }
+
+        @media (max-width: 900px) {
+            #chartCanvas {
+                height: 300px;
+            }
+        }
+
+        #sleepAdvice h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        #sleepAdvice p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .modal-body {
+            text-align: left;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+
+        .nav-bar .logo img {
+            vertical-align: baseline;
+        }
+
+    </style>
 </head>
+
 <body>
-<nav th:fragment="header" th:replace="~{home :: header}">
+<nav th:replace="~{home :: header}"></nav>
+<div class="container" style="margin-top: 80px;">
+    <h2 class="mt-5">Biểu đồ Giấc Ngủ <span th:text="${weekAgo == 0 ? 'Tuần hiện tại' : weekAgo + ' Tuần Trước'}"></span></h2>
+    <canvas id="chartCanvas"></canvas>
 
-</nav>
 
-<div class="coup">
-    <img src="/images/anhcouple.jpg" alt="" />
-    <h2>Sleep Better, For the Journey Ahead</h2>
-    <p>
-        Understand your sleep strengths and challenges so you can live life at
-        full steam.
-    </p>
+    <div class="controls">
+        <button id="updateWeek" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#updateModal">
+            Cập nhật tuần hiện tại
+        </button>
+        <a id="prevWeek" th:href="@{/sleep-suggestion(weekAgo=${weekAgo+1})}" class="btn btn-primary mt-3">Tuần trước</a>
+        <a id="nextWeek" th:href="@{/sleep-suggestion(weekAgo=${weekAgo-1})}" class="btn btn-primary mt-3">Tuần sau</a>
+    </div>
+
+
+    <div id="sleepAdvice" class="my-4">
+        <!-- Phần đánh giá và lời khuyên sẽ được cập nhật tại đây -->
+    </div>
 </div>
-<div class="title">
-    <a href=""><h2>Tips To Improve Your Sleep</h2></a>
-    <hr />
-</div>
 
-<div class="contactt">
-    <h2>Contact with us for more:</h2>
-    <hr />
-    <div class="contact">
-        <div>
-            <a href="https://www.facebook.com/huanle04">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-        </div>
-        <div class="hii">
-            <a href="https://www.instagram.com/hunlvne.04">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-        </div>
-        <div class="hi">
-            <a href="">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-        </div>
-        <div class="thr">
-            <a href="https://www.threads.net/@hunlvne.04">
-                <i class="fa-brands fa-threads"></i>
-            </a>
+<!-- Modal Cập Nhật Giấc Ngủ -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Cập nhật giấc ngủ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateForm">
+                    <div id="inputFields"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-success" id="saveChanges">Cập nhật</button>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="/js/Home.js" th:src="@{/js/Home.js}"></script>
+<script th:inline="javascript">
+    // Dữ liệu tuần hiện tại (giả lập)
+    const currentWeek = /*[[${weekAgo}]]*/; // week ago
+
+    // Dữ liệu mẫu
+    const currentWeekData = {
+        labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ Nhật'],
+        data: /*[[${sleepHours}]]*/,
+    };
+
+    // Hiển thị các input trong modal
+    document.getElementById('updateWeek').addEventListener('click', () => {
+        const inputFields = document.getElementById('inputFields');
+        inputFields.innerHTML = ''; // Xóa nội dung cũ
+        currentWeekData.labels.forEach((label, index) => {
+            inputFields.innerHTML += `
+                    <div class="mb-3">
+                        <label class="form-label">${label}:</label>
+                        <input type="number" class="form-control" min="0" step="0.5" value="${currentWeekData.data[index]}" id="input-${index}">
+                    </div>
+                `;
+        });
+    });
+
+    // Gửi dữ liệu cập nhật lên server qua POST----------------------------------------------------------------
+    document.getElementById('saveChanges').addEventListener('click', async () => {
+        const updatedData = [];
+        currentWeekData.labels.forEach((_, index) => {
+            const value = parseFloat(document.getElementById(`input-${index}`).value) || 0;
+            updatedData.push(value);
+        });
+
+        // Gửi request POST
+        const response = await fetch('/update-sleep-hours', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                weekAgo: currentWeek,
+                sleepTimes: updatedData,
+            }),
+        });
+
+        if (response.ok) {
+            alert('Dữ liệu đã được cập nhật thành công!');
+            if (currentWeek === 0) window.location.reload();
+            currentWeekData.data = updatedData; // Cập nhật dữ liệu cục bộ
+            renderChart(); // Cập nhật biểu đồ
+        } else {
+            console.log(response)
+            let errorMessage = await response.text();
+            alert(`Có lỗi xảy ra: ${errorMessage || 'Vui lòng thử lại.'}`);
+        }
+
+        bootstrap.Modal.getInstance(document.getElementById('updateModal')).hide(); // Đóng modal
+    });
+
+    // Hàm đánh giá giấc ngủ
+    function evaluateSleep(data, weekAgo) {
+        const idealSleep = 7; // Giấc ngủ lý tưởng tối thiểu mỗi ngày
+        const idealMaxSleep = 9; // Giấc ngủ lý tưởng tối đa mỗi ngày
+        let totalSleep = 0;
+        let daysCount = 0;
+
+        if (weekAgo === 0) {
+            // Nếu là tuần hiện tại, chỉ tính số ngày đã qua trong tuần
+            const currentDay = new Date().getDay(); // 0: Chủ nhật, 1: Thứ 2, ..., 6: Thứ 7
+            // Vì tuần của bạn bắt đầu từ Thứ Hai, nên cần điều chỉnh currentDay.
+            // Thứ Hai là 1, nên ta sẽ tính số ngày từ thứ Hai đến hiện tại.
+            const daysInCurrentWeek = currentDay === 0 ? 6 : currentDay - 1; // Tổng số ngày đã qua trong tuần (thứ Hai = 1)
+
+            // Lấy chỉ số các ngày đã qua
+            for (let i = 0; i < daysInCurrentWeek; i++) {
+                totalSleep += data[i];
+                daysCount++;
+            }
+        } else {
+            // Nếu không phải tuần hiện tại, tính toàn bộ dữ liệu
+            totalSleep = data.reduce((sum, hours) => sum + hours, 0);
+            daysCount = data.length;
+        }
+
+        const averageSleep = totalSleep / daysCount;
+
+        let advice = '';
+        let rating = '';
+
+        if (averageSleep < idealSleep) {
+            rating = 'Chưa đủ giấc ngủ';
+            advice = 'Hãy cố gắng ngủ thêm ít nhất ' + (idealSleep - averageSleep).toFixed(1) + ' giờ mỗi đêm để cải thiện sức khỏe.';
+        } else if (averageSleep > idealMaxSleep) {
+            rating = 'Ngủ quá nhiều';
+            advice = 'Ngủ nhiều hơn 9 giờ có thể gây hại cho sức khỏe. Hãy thử giảm thời gian ngủ xuống khoảng 7-9 giờ.';
+        } else {
+            rating = 'Giấc ngủ ổn định';
+            advice = 'Bạn có một giấc ngủ lý tưởng. Tiếp tục duy trì thói quen tốt này!';
+        }
+
+        return { rating, advice };
+    }
+
+
+    // Cập nhật đánh giá và lời khuyên
+    function updateSleepAdvice() {
+        const adviceContainer = document.getElementById('sleepAdvice');
+        const evaluation = evaluateSleep(currentWeekData.data, currentWeek);
+
+        adviceContainer.innerHTML = `
+                <h4>Đánh giá: ${evaluation.rating}</h4>
+                <p>${evaluation.advice}</p>
+            `;
+    }
+
+    // Hàm render biểu đồ
+    function renderChart() {
+        const ctx = document.getElementById('chartCanvas').getContext('2d');
+        if (window.chart) window.chart.destroy(); // Xóa biểu đồ cũ nếu có
+        window.chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: currentWeekData.labels,
+                datasets: [{
+                    label: currentWeek === 0 ? `Số giờ ngủ - Tuần Hiện Tại` : `Số giờ ngủ - ${currentWeek} Tuần Trước`,
+                    data: currentWeekData.data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true },
+                },
+            },
+        });
+
+        updateSleepAdvice(); // Cập nhật đánh giá
+    }
+    // Khởi tạo biểu đồ
+    renderChart();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
